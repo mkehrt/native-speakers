@@ -1,3 +1,3 @@
-function main() {
+function run() {
     alert("alert")
 }

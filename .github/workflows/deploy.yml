@@ -53,5 +53,5 @@ jobs:
       - name: Deploy
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: rsync out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
+        run: rsync -rv out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
 

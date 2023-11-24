@@ -26,6 +26,9 @@ jobs:
       - name: build
         run: make
 
+      - name: create-dot-ssh
+        run: mkir -p ~/.ssh
+
       - name: setup-ssh-agent
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"

@@ -32,5 +32,5 @@ jobs:
         env: 
             NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
-            "ssh-add <<< $NFS_SSH_KEY"
+            ssh-add <<< "$NFS_SSH_KEY"
             ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

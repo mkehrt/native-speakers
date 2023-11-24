@@ -6,7 +6,7 @@ out:
 	mkdir out
 
 copy:
-	cp -R files/ out
+	cp -R files/* out
 
 build: out/main.js
 

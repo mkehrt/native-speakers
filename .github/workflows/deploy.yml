@@ -42,6 +42,7 @@ jobs:
       - name: cleanup-old
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+          NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
           ssh-add -L
-          ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"
+          ssh -vvv -i <(echo "$NFS_SSH_KEY") mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

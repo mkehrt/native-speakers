@@ -45,12 +45,8 @@ jobs:
           KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
         run: echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
 
-
       - name: cleanup-old
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: |
-          echo "KNOWN HOSTS >>>"
-          cat ~/.ssh/known_hosts
-          echo "KNOWN HOSTS <<<"
           ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

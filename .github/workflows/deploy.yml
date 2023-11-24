@@ -29,4 +29,6 @@ jobs:
 
       # Deploy
       - name: deploy
-        run: echo "..."
+        run: |
+            echo "1"
+            echo "2"

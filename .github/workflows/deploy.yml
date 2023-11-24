@@ -44,4 +44,4 @@ jobs:
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: |
           ssh-add -L
-          ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"
+          ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

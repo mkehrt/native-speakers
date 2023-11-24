@@ -23,29 +23,29 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: build
+      - name: Build
         run: make
 
-      - name: create-dot-ssh
+      - name: Make .ssh directory
         run: mkdir -p ~/.ssh
 
-      - name: setup-ssh-agent
+      - name: Setup ssh-agent
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: ssh-agent -a "$SSH_AUTH_SOCK"
       
-      - name: add-ssh-key
+      - name: Add ssh key
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
           SSH_KEY: ${{ secrets.NFS_SSH_KEY_RSA }}
         run: ssh-add -vvv - <<< "$SSH_KEY"
 
-      - name: add-known-host 
+      - name: Add host key 
         env:
           KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
         run: echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
 
-      - name: cleanup-old
+      - name: Clean up old deploy
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: |

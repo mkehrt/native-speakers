@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Deploy
 
 # Controls when the workflow will run
 on:
@@ -26,24 +26,16 @@ jobs:
       - name: Build
         run: make
 
-      - name: Make .ssh directory
-        run: mkdir -p ~/.ssh
-
-      - name: Set up ssh-agent
+      - name: Set up SSH keys 
         env: 
-          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: ssh-agent -a "$SSH_AUTH_SOCK"
-      
-      - name: Add ssh key
-        env: 
+          KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
           SSH_KEY: ${{ secrets.NFS_SSH_KEY_RSA }}
-        run: ssh-add -vvv - <<< "$SSH_KEY"
-
-      - name: Add host key 
-        env:
-          KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
-        run: echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-agent -a "$SSH_AUTH_SOCK"
+          ssh-add -vvv - <<< "$SSH_KEY"
+          echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
 
       - name: Clean up old deploy
         env: 

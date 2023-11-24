@@ -29,7 +29,7 @@ jobs:
       - name: Make .ssh directory
         run: mkdir -p ~/.ssh
 
-      - name: Setup ssh-agent
+      - name: Set up ssh-agent
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: ssh-agent -a "$SSH_AUTH_SOCK"
@@ -48,5 +48,10 @@ jobs:
       - name: Clean up old deploy
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: |
-          ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"
+        run: ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "find /home/public -mindepth 1"
+
+      - name: Deploy
+        env: 
+          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+        run: rsync out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
+

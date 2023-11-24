@@ -31,7 +31,7 @@ jobs:
       - name: setup-ssh-agent
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: `ssh-agent -a "$SSH_AUTH_SOCK"`
+        run: ssh-agent -a "$SSH_AUTH_SOCK"
       
       - name: add-ssh-key
         env: 

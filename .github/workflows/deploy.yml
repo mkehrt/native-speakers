@@ -29,6 +29,7 @@ jobs:
 
       # Deploy
       - name: deploy
+        env: NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
-            echo "1"
-            echo "2"
+            ssh-add <<< $NFS_SSH_KEY
+            ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

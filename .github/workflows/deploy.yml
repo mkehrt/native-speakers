@@ -42,8 +42,9 @@ jobs:
 
       - name: add-known-host 
         env:
-          KNOWN_HOST: ${{ secrets.NFS_KNOWN_HOST_RSA }}
-        run: echo "$KNOWN_HOST"
+          KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
+        run: echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
+
 
       - name: cleanup-old
         env: 

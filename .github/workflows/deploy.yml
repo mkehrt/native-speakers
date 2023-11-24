@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-and-deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,12 +28,16 @@ jobs:
         run: make
 
       # Deploy
-      - name: deploy
+      - name: setup-ssh-agent
         env: 
-            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-            NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
-        run: |
-            pwd
-            `ssh-agent -a "$SSH_AUTH_SOCK"`
-            ssh-add <<< "$NFS_SSH_KEY"
-            ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"
+          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+        run: `ssh-agent -a "$SSH_AUTH_SOCK"`
+      
+      - name: add-ssh-key
+        env: 
+          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+          NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
+        run: ssh-add <<< "$NFS_SSH_KEY"
+
+      - name: cleanup-old
+          run: ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

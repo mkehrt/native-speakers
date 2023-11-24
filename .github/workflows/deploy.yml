@@ -23,11 +23,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Build
       - name: build
         run: make
 
-      # Deploy
       - name: setup-ssh-agent
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
@@ -36,13 +34,17 @@ jobs:
       - name: add-ssh-key
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-          NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
-        run: ssh-add -vvv - <<< "$NFS_SSH_KEY"
+          SSH_KEY: ${{ secrets.NFS_SSH_KEY_RSA }}
+        run: ssh-add -vvv - <<< "$SSH_KEY"
+
+      - name: add-known-host 
+        env:
+          KNOWN_HOST: ${{ secrets.NFS_KNOWN_HOST_RSA }}
+        run: echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
 
       - name: cleanup-old
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-          NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
           ssh-add -L
           ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

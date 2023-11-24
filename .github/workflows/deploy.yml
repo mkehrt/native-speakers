@@ -30,7 +30,7 @@ jobs:
       # Deploy
       - name: deploy
         env: 
-            SSH_AUTH_SOCK: /home/runner/ssh_agent.sock
+            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
             NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
             `ssh-agent -a "$SSH_AUTH_SOCK"`

@@ -40,4 +40,6 @@ jobs:
         run: ssh-add -vvv - <<< "$NFS_SSH_KEY"
 
       - name: cleanup-old
-        run: ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"
+        run: |
+          ssh-add -L
+          ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

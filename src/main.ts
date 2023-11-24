@@ -1,3 +1,6 @@
 function main() {
-    alert("alert")
+    let example_div = document.getElementById("example");
+    if (example_div != null) {
+        example_div.textContent = "EXAMPLE";
+    }
 }

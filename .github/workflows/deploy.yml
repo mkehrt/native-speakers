@@ -37,13 +37,8 @@ jobs:
           ssh-add -vvv - <<< "$SSH_KEY"
           echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
 
-      - name: Clean up old deploy
-        env: 
-          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "find /home/public -mindepth 1 -maxdepth 1 |  xargs rm -rf"
-
       - name: Deploy
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: rsync -rv out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
+        run: rsync -rv --delete out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
 

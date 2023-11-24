@@ -49,6 +49,7 @@ jobs:
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
         run: |
-          ssh-add -L
+          echo "KNOWN HOSTS >>>"
           cat ~/.ssh/known_hosts
+          echo "KNOWN HOSTS <<<"
           ssh -vvv mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

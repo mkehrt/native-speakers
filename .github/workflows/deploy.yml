@@ -33,6 +33,6 @@ jobs:
             SSH_AUTH_SOCK: /home/runner/ssh_agent.sock
             NFS_SSH_KEY: ${{ secrets.NFS_SSH_KEY }}
         run: |
-            ssh-agent -d -a "$SSH_AUTH_SOCK" 2>&1
+            `ssh-agent -a "$SSH_AUTH_SOCK"`
             ssh-add <<< "$NFS_SSH_KEY"
             ssh mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net "hostname"

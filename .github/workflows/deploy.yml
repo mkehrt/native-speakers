@@ -27,7 +27,7 @@ jobs:
         run: make
 
       - name: create-dot-ssh
-        run: mkir -p ~/.ssh
+        run: mkdir -p ~/.ssh
 
       - name: setup-ssh-agent
         env: 

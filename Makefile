@@ -10,7 +10,7 @@ copy:
 
 build: out/main.js
 
-out/main.js:
+out/main.js: tsconfig.json
 	npx tsc
 
 clean:

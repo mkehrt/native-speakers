@@ -1,8 +1,9 @@
 {
    "compilerOptions": {
       "target": "ES2015",
-      "outFile": "out/main.js",
-      "module": "none",
+      "outDir": "out",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
       "sourceMap": true,
    },
    "include": [

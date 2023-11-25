@@ -10,8 +10,8 @@ copy:
 
 build: out/main.js
 
-out/%.js: src/%.ts
-	npx tsc $< --outFile $@ 
+out/%.js:
+	npx tsc --outFile $@ 
 
 clean:
 	- rm -rf out

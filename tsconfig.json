@@ -1,0 +1,11 @@
+{
+   "compilerOptions": {
+      "target": "ES2015",
+      "outFile": "out/main.js",
+      "module": "System",
+      "sourceMap": true,
+   },
+   "include": [
+      "src/**/*.ts"
+   ]
+}

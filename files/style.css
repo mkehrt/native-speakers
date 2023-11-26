@@ -1,7 +1,9 @@
 body {
     background-color: lightgrey;
+    font-family: "Roboto Slab", Helvetica, Arial, serif;
+    ;
   }
 
-# main-text {
+#main-text {
     color: darkgray
 }

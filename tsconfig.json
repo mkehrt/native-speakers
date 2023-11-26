@@ -4,7 +4,6 @@
       "outDir": "out",
       "module": "ESNext",
       "moduleResolution": "Bundler",
-      "sourceMap": true,
    },
    "include": [
       "src/**/*.ts"

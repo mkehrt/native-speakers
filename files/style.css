@@ -1,3 +1,7 @@
+:root {
+    --lighttext: #795736;
+}
+
 body {
     background-color: #ffdbbc;
     font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
@@ -13,7 +17,7 @@ body {
 }
 
 #example-text {
-    color: #795736;
+    color: var(--lighttext);
     width: 66vw;
     padding-top: 6vw;
     margin: auto;
@@ -22,4 +26,8 @@ body {
 
 #example {
     color: #550264
+}
+
+#example-and {
+    color: var(--lighttext)
 }

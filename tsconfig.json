@@ -1,9 +1,9 @@
 {
    "compilerOptions": {
-      "target": "ES2015",
+      "target": "ES2020",
       "outDir": "out",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
       "sourceMap": true,
    },
    "include": [

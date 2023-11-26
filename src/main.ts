@@ -15,7 +15,7 @@ function convert_example_to_html(example: (string | [string, string])): string {
     } else {
         let first = example[0]
         let second = example[1]
-        let html = first + "<span id=\"exampleand\"> and </span>" + second
+        let html = first + "<span id=\"example-and\"> and </span>" + second
         return html
     }
 }

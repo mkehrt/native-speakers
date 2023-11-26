@@ -22,7 +22,7 @@ function convert_example_to_html(example: (string | [string, string])): string {
 
 function select_example(): (string | [string, string]) {
     console.log(examples)
-    let example: string | [string, string] = examples[1]
+    let example: string | [string, string] = examples[2]
     return example
 }
 

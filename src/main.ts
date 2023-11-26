@@ -1,4 +1,4 @@
-import { examples } from "./examples"
+import { examples } from "./examples.ts"
 
 function main() {
     let example_div = document.getElementById("example");

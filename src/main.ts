@@ -15,14 +15,19 @@ function convert_example_to_html(example: (string | [string, string])): string {
     } else {
         let first = example[0]
         let second = example[1]
-        let html = first + "<span id=\"example-and\"> and </span>" + second
+        let html = first + "<span id=\"exampleand\"> and </span>" + second
         return html
     }
 }
 
+function random_int(max) {
+    return Math.floor(Math.random() * max);
+}
+
 function select_example(): (string | [string, string]) {
-    console.log(examples)
-    let example: string | [string, string] = examples[2]
+    let  length = examples.length
+    let index = random_int(length)
+    let example: string | [string, string] = examples[length]
     return example
 }
 

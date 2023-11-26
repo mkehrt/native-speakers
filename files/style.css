@@ -1,11 +1,11 @@
 body {
-    background-color: #E5D3B4;
+    background-color: #e5d0b4;
     font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
     font-size: 4vw;
   }
 
 #main-text {
-    color: #664229;
+    color: #503421;
     width: 66vw;
     padding-top:8vw;
     margin: auto;
@@ -13,7 +13,7 @@ body {
 }
 
 #example-text {
-    color: #987554;
+    color: #9b7755;
     width: 66vw;
     padding-top: 6vw;
     margin: auto;

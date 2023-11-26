@@ -1,4 +1,5 @@
 export const examples: Array<string | [string, string]> = [
-    "a",
-    ["x", "y"],
+    "Canadian goose",
+    "nonplussed",
+    ["that", "which"],
 ]

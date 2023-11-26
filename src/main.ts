@@ -1,6 +1,6 @@
 import { examples } from "./examples"
 
-function main() {
+export function main() {
     let example_div = document.getElementById("example");
     if (example_div != null) {
         let example = select_example();

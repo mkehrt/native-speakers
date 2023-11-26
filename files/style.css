@@ -8,4 +8,12 @@ body {
     color: darkgray;
     width: 75vw;
     margin: auto;
+    text-align: "center";
+}
+
+#example-text {
+    color: darkgray;
+    width: 75vw;
+    margin: auto;
+    text-align: "center";
 }

@@ -27,7 +27,7 @@ function random_int(max) {
 function select_example(): (string | [string, string]) {
     let  length = examples.length
     let index = random_int(length)
-    let example: string | [string, string] = examples[length]
+    let example: string | [string, string] = examples[index]
     return example
 }
 

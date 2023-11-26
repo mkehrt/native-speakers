@@ -1,9 +1,11 @@
 body {
     background-color: lightgrey;
     font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
-    font-size: 10vw;
+    font-size: 2vw;
   }
 
 #main-text {
     color: darkgray;
+    width: 75vw;
+    margin: auto;
 }

@@ -26,5 +26,5 @@ function select_example(): (string | [string, string]) {
     return example
 }
 
-document.addEventListener('onLoad', main)
+document.addEventListener('DOMContentLoaded', main)
 

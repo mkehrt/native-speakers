@@ -17,7 +17,7 @@ body {
 }
 
 #example-text {
-    font-size: 2vw;
+    font-size: 3vw;
     color: var(--lighttext);
     width: 66vw;
     padding-top: 6vw;

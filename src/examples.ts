@@ -4,4 +4,5 @@ export const examples: Array<string | [string, string]> = [
     ["that", "which"],
     "literally",
     "begs the question",
+    "irregardless"
 ]
